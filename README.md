@@ -14,9 +14,9 @@
 Descarga automatizada de los cursos de **_`Codigo Facilito`_**<br />
 con un script creado con **_`Python`_**, **_`Playwright`_** y **_`FFmpeg`_**.
 
-![GitHub repo size](https://img.shields.io/github/repo-size/ivansaul/codigo_facilito_downloader)
-![GitHub stars](https://img.shields.io/github/stars/ivansaul/codigo_facilito_downloader)
-![GitHub forks](https://img.shields.io/github/forks/ivansaul/codigo_facilito_downloader)
+![GitHub repo size](https://img.shields.io/github/repo-size/jdfesa/CodiVault)
+![GitHub stars](https://img.shields.io/github/stars/jdfesa/CodiVault)
+![GitHub forks](https://img.shields.io/github/forks/jdfesa/CodiVault)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 </div>
@@ -52,8 +52,8 @@ Este es el método más simple. No requiere Poetry.
 
 ```console
 # 1. Clonar el repositorio
-git clone https://github.com/ivansaul/codigo_facilito_downloader.git
-cd codigo_facilito_downloader
+git clone https://github.com/jdfesa/CodiVault.git
+cd CodiVault
 
 # 2. Crear y activar el entorno virtual
 python3 -m venv venv
@@ -108,8 +108,8 @@ brew install ffmpeg
 ### 3. Clonar el repositorio
 
 ```console
-git clone https://github.com/ivansaul/codigo_facilito_downloader.git
-cd codigo_facilito_downloader
+git clone https://github.com/jdfesa/CodiVault.git
+cd CodiVault
 ```
 
 ### 4. Configurar Python y dependencias
@@ -141,8 +141,8 @@ sudo apt install ffmpeg -y   # Ubuntu/Debian
 sudo pacman -S ffmpeg        # Arch Linux
 
 # Clonar e instalar
-git clone https://github.com/ivansaul/codigo_facilito_downloader.git
-cd codigo_facilito_downloader
+git clone https://github.com/jdfesa/CodiVault.git
+cd CodiVault
 pip install poetry
 poetry install
 poetry run playwright install chromium
