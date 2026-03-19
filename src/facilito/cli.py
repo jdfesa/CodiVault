@@ -91,6 +91,14 @@ def download(
             show_default=True,
         ),
     ] = 10,
+    headless: Annotated[
+        bool,
+        typer.Option(
+            "--headless/--no-headless",
+            help="Run browser in headless (minimized/hidden) mode.",
+            show_default=True,
+        ),
+    ] = True,
 ):
     """
     Download a bootcamp | course | video | lecture from the given URL.
@@ -116,6 +124,81 @@ def download(
             quality=quality,
             override=override,
             threads=threads,
+            headless=headless,
+        )
+    )
+
+
+@app.command()
+def interactive():
+    """
+    Start an interactive wizard to download content.
+
+    Usage:
+        facilito interactive
+    """
+    from rich.console import Console
+    from rich.panel import Panel
+    from rich.prompt import Confirm, IntPrompt, Prompt
+
+    console = Console()
+    console.print(
+        Panel.fit(
+            "[bold white]Bienvenido al entorno interactivo de CodiVault[/bold white]",
+            subtitle="Descarga guiada",
+            border_style="cyan",
+        )
+    )
+
+    url = Prompt.ask(
+        "\n[bold cyan]1. URL del recurso[/bold cyan] (curso, bootcamp, video)"
+    )
+    if not url:
+        console.print(
+            "[bold red]❌ Debes proveer una URL válida para continuar.[/bold red]"
+        )
+        raise typer.Exit()
+
+    quality_input = Prompt.ask(
+        "\n[bold cyan]2. Calidad de video[/bold cyan] (max, 1080p, 720p, 480p, 360p, min)",
+        default="max",
+    )
+
+    threads = IntPrompt.ask(
+        "\n[bold cyan]3. Hilos de descarga simultánea[/bold cyan] (1-16)",
+        default=10,
+    )
+
+    headless = Confirm.ask(
+        "\n[bold cyan]4. ¿Ejecutar el navegador de fondo (modo oculto)?[/bold cyan]\n"
+        "[dim]Escribe 'n' si la descarga te da error por medidas de seguridad de Cloudflare[/dim]",
+        default=False,
+    )
+
+    override = Confirm.ask(
+        "\n[bold cyan]5. ¿Sobreescribir archivos locales si ya existen?[/bold cyan]",
+        default=False,
+    )
+
+    try:
+        quality_enum = Quality(quality_input.lower())
+    except ValueError:
+        quality_enum = Quality.MAX
+        console.print(
+            f"\n[yellow]⚠️ Calidad '{quality_input}' no es válida. Usando calidad 'max' por defecto.[/yellow]"
+        )
+
+    console.print(
+        f"\n🚀 [bold green]Iniciando descarga automatizada de:[/bold green] {url}\n"
+    )
+
+    asyncio.run(
+        _download(
+            url=url,
+            quality=quality_enum,
+            override=override,
+            threads=threads,
+            headless=headless,
         )
     )
 
@@ -130,8 +213,8 @@ async def _logout():
         await client.logout()
 
 
-async def _download(url: str, **kwargs):
-    async with AsyncFacilito() as client:
+async def _download(url: str, headless: bool = True, **kwargs):
+    async with AsyncFacilito(headless=headless) as client:
         await client.download(url, **kwargs)
 
 

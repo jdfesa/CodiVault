@@ -193,7 +193,22 @@ poetry run facilito set-cookies path/to/cookies.json
 poetry run facilito logout
 ```
 
-### Descargar
+### Descarga Interactiva (Recomendado) ⭐
+
+Si prefieres no usar el comando manual ni aprender parámetros, el proyecto incluye un asistente completamente guiado en terminal:
+
+```console
+poetry run facilito interactive
+```
+
+El script te guiará de la mano para establecer:
+1. La URL del recurso.
+2. La calidad de descarga.
+3. Opcionalmente configurar ocultar el navegador (`headless`). **Nota:** Si la consola arroja un error al obtener la información de un bootcamp (debido a las protecciones anti-bot automáticas del sitio), contesta 'n' a la ejecución de modo oculto para saltarte esa capa de seguridad exitosamente.
+
+---
+
+### Descarga Manual (Avanzado)
 
 ```console
 poetry run facilito download <url> [OPCIONES]

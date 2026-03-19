@@ -18,12 +18,31 @@ async def fetch_video(context: BrowserContext, url: str) -> Video:
 
     try:
         page = await context.new_page()
+        m3u8_url = None
+
+        async def intercept_request(request):
+            nonlocal m3u8_url
+            if ".m3u8" in request.url and "playlist" in request.url:
+                m3u8_url = request.url
+
+        page.on("request", intercept_request)
+
         await page.goto(url)
 
-        if m3u8_urls := re.findall(M3U8_PATTERN, await page.content()):
-            url = VIDEO_BASE_URL + m3u8_urls[0]
+        # Wait a bit for the player to initialize and request the stream
+        try:
+            # First wait for the video player container
+            await page.wait_for_selector(".video-js, video", timeout=10000)
+        except Exception:
+            pass
 
+        # Give it a few extra seconds to ensure the m3u8 request triggers
+        await page.wait_for_timeout(3000)
+
+        if m3u8_url:
+            url = m3u8_url
         else:
+            # Fallback to the old method if interception failed
             course_id = await page.locator(COURSE_ID_SELECTOR).first.get_attribute(
                 "value"
             )

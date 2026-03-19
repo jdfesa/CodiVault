@@ -126,13 +126,14 @@ class AsyncFacilito:
 
         if is_video(url) or is_lecture(url) or is_quiz(url):
             unit = await self.fetch_unit(url)
-            extension = ".mp4" if unit.type == TypeUnit.VIDEO else ".mhtml"
-            await download_unit(
-                self.context,
-                unit,
-                Path(unit.slug + extension),
-                **kwargs,
-            )
+            if unit:
+                extension = ".mp4" if unit.type == TypeUnit.VIDEO else ".mhtml"
+                await download_unit(
+                    self.context,
+                    unit,
+                    Path(unit.slug + extension),
+                    **kwargs,
+                )
 
         elif is_course(url):
             course = await self.fetch_course(url)
