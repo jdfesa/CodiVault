@@ -238,7 +238,7 @@ poetry run facilito download https://codigofacilito.com/videos/...
 > [!TIP]
 > Si una descarga se interrumpe, volvé a ejecutar el mismo comando: los videos ya descargados se saltean automáticamente.
 
-Los videos se guardan en la carpeta `Facilito/` dentro del directorio del proyecto, organizados por curso.
+Los videos se guardan en la carpeta `Facilito/` dentro del directorio del proyecto. Los cursos y programas se organizan automáticamente en subcarpetas estructuradas, mientras que los videos o clases individuales se guardan dentro de `Facilito/Videos Sueltos/`.
 
 ---
 

@@ -125,13 +125,15 @@ class AsyncFacilito:
         from .utils import is_bootcamp, is_course, is_lecture, is_quiz, is_video
 
         if is_video(url) or is_lecture(url) or is_quiz(url):
+            from .constants import APP_NAME
             unit = await self.fetch_unit(url)
             if unit:
                 extension = ".mp4" if unit.type == TypeUnit.VIDEO else ".mhtml"
+                save_path = Path(APP_NAME) / "Videos Sueltos" / (unit.slug + extension)
                 await download_unit(
                     self.context,
                     unit,
-                    Path(unit.slug + extension),
+                    save_path,
                     **kwargs,
                 )
 
