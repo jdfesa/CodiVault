@@ -201,6 +201,10 @@ Si prefieres no usar el comando manual ni aprender parámetros, el proyecto incl
 poetry run facilito interactive
 ```
 
+<div align="center">
+    <img width="800" src="./assets/interactive-demo.png" alt="Demostración del modo interactivo" style="border-radius: 10px; margin-bottom: 20px;">
+</div>
+
 El script te guiará de la mano para establecer:
 1. La URL del recurso.
 2. La calidad de descarga.
