@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/2c723777-c175-4009-a349-34d2b737a2df
-
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
     <img width="600" src="./assets/banner.png" alt="codi-vault Banner">
@@ -12,6 +8,10 @@ https://github.com/user-attachments/assets/2c723777-c175-4009-a349-34d2b737a2df
 CLI para descargar cursos, bootcamps y videos de Código Facilito para verlos sin conexión.
 
 El proyecto está pensado para ejecutarse dentro de su propia carpeta, sin instalar comandos globales en tu sistema.
+
+## Preview
+
+https://github.com/user-attachments/assets/2c723777-c175-4009-a349-34d2b737a2df
 
 ## Demo
 
