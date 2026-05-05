@@ -11,11 +11,9 @@ El proyecto está pensado para ejecutarse dentro de su propia carpeta, sin insta
 
 ## Demo
 
-<div align="center">
-    <video src="./assets/funcionamiento.mp4" controls width="800">
-        Tu navegador no soporta la reproducción de video.
-    </video>
-</div>
+[Ver video de funcionamiento](./assets/funcionamiento.mp4)
+
+GitHub no siempre reproduce videos embebidos dentro del README. El enlace abre el demo versionado en el repositorio.
 
 ## Requisitos
 
