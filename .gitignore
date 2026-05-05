@@ -2,6 +2,7 @@
 *.txt
 *.json
 *.mp4*
+!assets/funcionamiento.mp4
 *.mkv
 *.zip
 node_modules/

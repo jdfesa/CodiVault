@@ -9,6 +9,14 @@ CLI para descargar cursos, bootcamps y videos de Código Facilito para verlos si
 
 El proyecto está pensado para ejecutarse dentro de su propia carpeta, sin instalar comandos globales en tu sistema.
 
+## Demo
+
+<div align="center">
+    <video src="./assets/funcionamiento.mp4" controls width="800">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+</div>
+
 ## Requisitos
 
 | Herramienta | Uso |
