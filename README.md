@@ -1,7 +1,3 @@
-
-
-https://github.com/user-attachments/assets/5cb9125e-2add-4a3d-aae4-b2ff9ce47b45
-
 <!-- markdownlint-disable MD033 MD041 -->
 <div align="center">
     <img width="600" src="./assets/banner.png" alt="codi-vault Banner">
@@ -15,9 +11,9 @@ El proyecto está pensado para ejecutarse dentro de su propia carpeta, sin insta
 
 ## Demo
 
-[Ver video de funcionamiento](./assets/funcionamiento.mp4)
+https://github.com/user-attachments/assets/5cb9125e-2add-4a3d-aae4-b2ff9ce47b45
 
-GitHub no siempre reproduce videos embebidos dentro del README. El enlace abre el demo versionado en el repositorio.
+[Ver video desde el repositorio](./assets/funcionamiento.mp4)
 
 ## Requisitos
 
